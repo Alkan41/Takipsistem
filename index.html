@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
@@ -9,26 +9,6 @@
     <style>
       body {
         font-family: 'Inter', sans-serif;
-      }
-      @keyframes gifFlyOverLeft {
-        0%, 41.6% { opacity: 0; transform: translate(0, 0); } /* 5s hidden */
-        42% { opacity: 0.2; transform: translate(0, 0); } /* Start animation */
-        91.5% { opacity: 0.2; transform: translate(50px, -40px); } /* Keep visible until end of flight */
-        91.6% { opacity: 0; transform: translate(50px, -40px); } /* Disappear instantly at end position */
-        100% { opacity: 0; transform: translate(0, 0); } /* Reset for next cycle */
-      }
-      @keyframes gifFlyOverRight {
-        0%, 41.6% { opacity: 0; transform: translate(0, 0); } /* 5s hidden */
-        42% { opacity: 0.2; transform: translate(0, 0); } /* Start animation */
-        91.5% { opacity: 0.2; transform: translate(-50px, -40px); } /* Keep visible until end of flight */
-        91.6% { opacity: 0; transform: translate(-50px, -40px); } /* Disappear instantly at end position */
-        100% { opacity: 0; transform: translate(0, 0); } /* Reset for next cycle */
-      }
-      .animated-gif-left {
-        animation: gifFlyOverLeft 12s infinite linear;
-      }
-      .animated-gif-right {
-        animation: gifFlyOverRight 12s infinite linear;
       }
       .embedded-shadow {
         box-shadow: inset 0 0 12px 4px rgb(0 0 0 / 0.5);
@@ -446,44 +426,32 @@ const RedirectingOverlay = ({ isVisible, isFadingOut }) => {
 // From components/Header.tsx
 const Header = () => {
     return (
-        React.createElement("header", { className: "bg-ogm-green-700/80 backdrop-blur-sm text-white py-4 px-6 text-center rounded-xl -mt-12 -mx-8 mb-6 sm:-mt-14 sm:-mx-12 sm:mb-8 flex items-center justify-between shadow-lg" },
-            React.createElement("div", { className: "flex items-center space-x-1 sm:space-x-4 ml-2 sm:ml-4" },
-                React.createElement("div", { className: "rounded-full embedded-shadow flex-shrink-0" },
-                    React.createElement("img", {
-                        src: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWx6eG0zcjIxY2xqczQ3NDdzdWg1NnBuZjJsY3Z0aG53djI3bmtyciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/eRlCNIpfGdPdub57JI/giphy.gif",
-                        alt: "OGM Logo",
-                        className: "h-14 w-14 sm:h-28 sm:w-28 rounded-full object-cover"
-                    })
-                ),
-                React.createElement("div", { className: "rounded-full embedded-shadow flex-shrink-0 animated-gif-left" },
-                    React.createElement("img", {
-                        src: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmJ0N2k2anQ5dzBncWMwd2Fkemh3M2Zudm9hMXpmODNxYngwMTlwOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ft0CtHyxdGJusr6MWi/giphy.gif",
-                        alt: "Animated Left Gif",
-                        className: "h-14 w-14 sm:h-28 sm:w-28 rounded-full object-cover"
-                    })
-                )
+        React.createElement("header", {
+            className: "bg-ogm-green-700/80 backdrop-blur-sm text-white py-4 px-6 text-center rounded-xl -mt-12 -mx-8 mb-6 sm:-mt-14 sm:-mx-12 sm:mb-8 flex flex-col sm:flex-row items-center justify-between shadow-lg"
+        },
+            // Left Logo
+            React.createElement("div", { className: "rounded-full embedded-shadow flex-shrink-0" },
+                React.createElement("img", {
+                    src: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWx6eG0zcjIxY2xqczQ3NDdzdWg1NnBuZjJsY3Z0aG53djI3bmtyciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/eRlCNIpfGdPdub57JI/giphy.gif",
+                    alt: "OGM Logo",
+                    className: "h-20 w-20 sm:h-28 sm:w-28 rounded-full object-cover"
+                })
             ),
-            React.createElement("div", { className: "flex flex-col items-center px-4" },
-                React.createElement("h1", { className: "text-base sm:text-3xl font-bold uppercase tracking-wider" }, "ORMAN GENEL MÜDÜRLÜĞÜ"),
-                React.createElement("p", { className: "text-sm sm:text-2xl font-semibold uppercase" }, "HAVACILIK DAİRESİ"),
-                React.createElement("p", { className: "text-xs sm:text-xl font-medium uppercase" }, "YAKIT TAKİP SİSTEMİ")
+            // Title
+            React.createElement("div", {
+                className: "px-4 my-4 sm:my-0"
+            },
+                React.createElement("h1", { className: "text-xl sm:text-3xl font-bold uppercase tracking-wider" }, "ORMAN GENEL MÜDÜRLÜĞÜ"),
+                React.createElement("p", { className: "text-lg sm:text-2xl font-semibold uppercase" }, "HAVACILIK DAİRESİ"),
+                React.createElement("p", { className: "text-base sm:text-xl font-medium uppercase" }, "YAKIT TAKİP SİSTEMİ")
             ),
-            React.createElement("div", { className: "flex items-center space-x-1 sm:space-x-4 mr-2 sm:mr-4" },
-                 React.createElement("div", { className: "rounded-full embedded-shadow flex-shrink-0 animated-gif-right hidden sm:block" },
-                     React.createElement("img", {
-                        src: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmI3ZWpuc25laHFtd3FjdnNvNHZ0cTN1NzFkZjVlbzMxN2Y1N2J3byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/il1R6wTaTD5q5d7H6T/giphy.gif",
-                        alt: "Animated Right Gif",
-                        className: "h-14 w-14 sm:h-28 sm:w-28 rounded-full object-cover transform scale-x-[-1]",
-                        style: { objectPosition: 'center 47.5%' }
-                    })
-                ),
-                React.createElement("div", { className: "rounded-full embedded-shadow flex-shrink-0" },
-                    React.createElement("img", {
-                        src: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3E3cXhjcDJibHQ2YTJiOTh0dTg3azF2M210MjJsdXVrYTJpdmE0dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1rrxPs1nb3IjwmbiXw/giphy.gif",
-                        alt: "Helikopter Logo",
-                        className: "h-14 w-14 sm:h-28 sm:w-28 rounded-full object-cover"
-                    })
-                )
+            // Right Logo
+            React.createElement("div", { className: "rounded-full embedded-shadow flex-shrink-0" },
+                React.createElement("img", {
+                    src: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3E3cXhjcDJibHQ2YTJiOTh0dTg3azF2M210MjJsdXVrYTJpdmE0dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1rrxPs1nb3IjwmbiXw/giphy.gif",
+                    alt: "Helikopter Logo",
+                    className: "h-20 w-20 sm:h-28 sm:w-28 rounded-full object-cover"
+                })
             )
         )
     );
@@ -519,7 +487,7 @@ const SelectField = (props) => (
     React.createElement("select", { ...props, className: "w-full p-3 border border-slate-300 rounded-lg text-slate-700 focus:outline-none focus:ring-2 focus:ring-ogm-green-500 bg-white" })
 );
 
-const FuelEntryForm = ({ personnelList, aircraftData, tankerData, airportList, onAddRecord, onAddPersonnelRequest, showMessage }) => {
+const FuelEntryForm = ({ personnelList, aircraftData, tankerData, airportList, onAddRecord, onAddPersonnelRequest, onStartRedirection, showMessage }) => {
     const [entryType, setEntryType] = useState('personnel');
 
     const defaultFormData = {
@@ -545,9 +513,6 @@ const FuelEntryForm = ({ personnelList, aircraftData, tankerData, airportList, o
     const [currentStep, setCurrentStep] = useState(1);
     const [formData, setFormData] = useState(defaultFormData);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isRedirecting, setIsRedirecting] = useState(false);
-    const [isFadingOut, setIsFadingOut] = useState(false);
-
 
     useEffect(() => {
         setCurrentStep(1);
@@ -769,12 +734,7 @@ const FuelEntryForm = ({ personnelList, aircraftData, tankerData, airportList, o
 
         try {
             await onAddRecord(recordToSave);
-            setIsRedirecting(true);
-
-            setTimeout(() => {
-                setIsFadingOut(true);
-                window.location.href = redirectUrl;
-            }, 2000);
+            onStartRedirection(redirectUrl);
         } catch (error) {
             console.error("Failed to submit record:", error);
             showMessage('Kayıt gönderilemedi. Lütfen tekrar deneyin.', 'error');
@@ -1004,37 +964,34 @@ const FuelEntryForm = ({ personnelList, aircraftData, tankerData, airportList, o
     const maxSteps = entryType === 'personnel' ? 5 : 4;
 
     return (
-        React.createElement(React.Fragment, null,
-            React.createElement(RedirectingOverlay, { isVisible: isRedirecting, isFadingOut: isFadingOut }),
-            React.createElement("div", { className: "space-y-6" },
-                React.createElement("h2", { className: "text-2xl font-bold text-slate-700" }, "Yakıt Girişi"),
-                React.createElement("div", { className: "flex justify-center gap-2 sm:gap-4 p-2 bg-black/10 rounded-lg" },
-                    [
-                        { id: 'personnel', label: 'Hava Aracı İkmal' },
-                        { id: 'tankerDolum', label: 'Tanker Dolum' },
-                        { id: 'tankerTransfer', label: 'Tanker Transfer' }
-                    ].map(type =>
-                        React.createElement("button", {
-                            key: type.id,
-                            onClick: () => setEntryType(type.id),
-                            className: `flex-1 py-2 px-3 rounded-md text-sm font-semibold transition-all ${entryType === type.id ? 'bg-ogm-green-600 text-white shadow' : 'bg-white/60 text-ogm-green-900 hover:bg-white/80'}`
-                        },
-                            type.label
-                        )
+        React.createElement("div", { className: "space-y-6" },
+            React.createElement("h2", { className: "text-2xl font-bold text-slate-700" }, "Yakıt Girişi"),
+            React.createElement("div", { className: "flex justify-center gap-2 sm:gap-4 p-2 bg-black/10 rounded-lg" },
+                [
+                    { id: 'personnel', label: 'Hava Aracı İkmal' },
+                    { id: 'tankerDolum', label: 'Tanker Dolum' },
+                    { id: 'tankerTransfer', label: 'Tanker Transfer' }
+                ].map(type =>
+                    React.createElement("button", {
+                        key: type.id,
+                        onClick: () => setEntryType(type.id),
+                        className: `flex-1 py-2 px-3 rounded-md text-sm font-semibold transition-all ${entryType === type.id ? 'bg-ogm-green-600 text-white shadow' : 'bg-white/60 text-ogm-green-900 hover:bg-white/80'}`
+                    },
+                        type.label
                     )
-                ),
-                React.createElement("form", { onSubmit: e => e.preventDefault() },
-                    renderStep(),
-                    React.createElement("div", { className: "flex justify-between gap-4 mt-6" },
-                        currentStep > 1 && (
-                            React.createElement("button", { type: "button", onClick: prevStep, className: "flex-1 py-3 px-6 bg-slate-500 text-white rounded-lg font-semibold hover:bg-slate-600 transition-colors" }, "Geri")
-                        ),
-                        currentStep < maxSteps ? (
-                            React.createElement("button", { type: "button", onClick: nextStep, disabled: !isStepValid(currentStep), className: "flex-1 py-3 px-6 bg-ogm-green-600 text-white rounded-lg font-semibold hover:bg-ogm-green-700 transition-colors disabled:bg-slate-300 disabled:cursor-not-allowed" }, "İleri")
-                        ) : (
-                            React.createElement("button", { type: "button", onClick: handleSubmit, disabled: isSubmitting || !isStepValid(currentStep), className: "flex-1 py-3 px-6 bg-ogm-green-600 text-white rounded-lg font-semibold hover:bg-ogm-green-700 transition-colors disabled:bg-slate-300" },
-                                isSubmitting ? 'Yönlendiriliyor...' : 'Kaydet ve Yönlendir'
-                            )
+                )
+            ),
+            React.createElement("form", { onSubmit: e => e.preventDefault() },
+                renderStep(),
+                React.createElement("div", { className: "flex justify-between gap-4 mt-6" },
+                    currentStep > 1 && (
+                        React.createElement("button", { type: "button", onClick: prevStep, className: "flex-1 py-3 px-6 bg-slate-500 text-white rounded-lg font-semibold hover:bg-slate-600 transition-colors" }, "Geri")
+                    ),
+                    currentStep < maxSteps ? (
+                        React.createElement("button", { type: "button", onClick: nextStep, disabled: !isStepValid(currentStep), className: "flex-1 py-3 px-6 bg-ogm-green-600 text-white rounded-lg font-semibold hover:bg-ogm-green-700 transition-colors disabled:bg-slate-300 disabled:cursor-not-allowed" }, "İleri")
+                    ) : (
+                        React.createElement("button", { type: "button", onClick: handleSubmit, disabled: isSubmitting || !isStepValid(currentStep), className: "flex-1 py-3 px-6 bg-ogm-green-600 text-white rounded-lg font-semibold hover:bg-ogm-green-700 transition-colors disabled:bg-slate-300" },
+                            isSubmitting ? 'Yönlendiriliyor...' : 'Kaydet ve Yönlendir'
                         )
                     )
                 )
@@ -2899,6 +2856,7 @@ const App = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isProcessing, setIsProcessing] = useState(false);
     const [criticalError, setCriticalError] = useState(null);
+    const [redirectInfo, setRedirectInfo] = useState({ isRedirecting: false, isFadingOut: false });
 
     const [fuelRecords, setFuelRecords] = useState([]);
     const [aircraftData, setAircraftData] = useState([]);
@@ -2912,6 +2870,16 @@ const App = () => {
     const showMessage = (text, type) => {
         setMessage({ text, type });
         setTimeout(() => setMessage(null), 5000);
+    };
+
+    const handleStartRedirection = (url) => {
+        setRedirectInfo({ isRedirecting: true, isFadingOut: false });
+        setTimeout(() => {
+            setRedirectInfo(prev => ({ ...prev, isFadingOut: true }));
+            setTimeout(() => {
+                window.location.href = url;
+            }, 1000); // Wait for fade-out animation to complete
+        }, 5000); // Show message for 5 seconds before fading
     };
 
     const postData = async (action, payload) => {
@@ -3120,57 +3088,61 @@ const App = () => {
     }
 
     return (
-        React.createElement("div", { className: "container mx-auto p-2 sm:p-6 md:p-8 lg:p-12" },
-            React.createElement("div", { className: "bg-white/70 backdrop-blur-md rounded-2xl shadow-xl p-6 sm:p-8 md:p-10" },
-                React.createElement(Header, null),
-                React.createElement(LoadingSpinner, { isVisible: isProcessing }),
-                message && React.createElement(MessageBox, { text: message.text, type: message.type }),
-                React.createElement(Tabs, { activeView: activeView, setActiveView: setActiveView }),
-                React.createElement("main", { className: "mt-8" },
-                    activeView === VIEW_FUEL_ENTRY &&
-                        React.createElement(FuelEntryForm, {
-                            personnelList: personnelList,
-                            aircraftData: aircraftData,
-                            tankerData: tankerData,
-                            airportList: airportList,
-                            onAddRecord: handleAddRecord,
-                            onAddPersonnelRequest: handleAddPersonnelRequest,
-                            showMessage: showMessage
-                        }),
-                    activeView === VIEW_SEARCH_RECORDS &&
-                        React.createElement(SearchRecords, {
-                            fuelRecords: fuelRecords,
-                            personnelList: personnelList,
-                            aircraftData: aircraftData,
-                            tankerData: tankerData,
-                            airportList: airportList,
-                            onAddApprovalRequest: handleAddApprovalRequest,
-                            showMessage: showMessage
-                        }),
-                    activeView === VIEW_ADMIN_PANEL &&
-                        React.createElement(AdminPanel, {
-                            currentUser: currentUser,
-                            setCurrentUser: setCurrentUser,
-                            fuelRecords: fuelRecords,
-                            aircraftData: aircraftData,
-                            tankerData: tankerData,
-                            personnelList: personnelList,
-                            approvalRequests: approvalRequests,
-                            personnelApprovalRequests: personnelApprovalRequests,
-                            adminCredentials: adminCredentials,
-                            airportList: airportList,
-                            showMessage: showMessage,
-                            updateAircraftData: updateAircraftData,
-                            updateTankerData: updateTankerData,
-                            updatePersonnelList: updatePersonnelList,
-                            updateAirportList: updateAirportList,
-                            addAdminUser: addAdminUser,
-                            deleteAdminUser: deleteAdminUser,
-                            updateFuelRecords: updateFuelRecords,
-                            handleEditApproval: handleEditApproval,
-                            handlePersonnelApproval: handlePersonnelApproval,
-                            onBulkUpdate: handleBulkUpdate
-                        })
+        React.createElement(React.Fragment, null,
+            React.createElement(RedirectingOverlay, { isVisible: redirectInfo.isRedirecting, isFadingOut: redirectInfo.isFadingOut }),
+            React.createElement("div", { className: "container mx-auto p-2 sm:p-6 md:p-8 lg:p-12" },
+                React.createElement("div", { className: "bg-white/70 backdrop-blur-md rounded-2xl shadow-xl p-6 sm:p-8 md:p-10" },
+                    React.createElement(Header, null),
+                    React.createElement(LoadingSpinner, { isVisible: isProcessing }),
+                    message && React.createElement(MessageBox, { text: message.text, type: message.type }),
+                    React.createElement(Tabs, { activeView: activeView, setActiveView: setActiveView }),
+                    React.createElement("main", { className: "mt-8" },
+                        activeView === VIEW_FUEL_ENTRY &&
+                            React.createElement(FuelEntryForm, {
+                                personnelList: personnelList,
+                                aircraftData: aircraftData,
+                                tankerData: tankerData,
+                                airportList: airportList,
+                                onAddRecord: handleAddRecord,
+                                onAddPersonnelRequest: handleAddPersonnelRequest,
+                                onStartRedirection: handleStartRedirection,
+                                showMessage: showMessage
+                            }),
+                        activeView === VIEW_SEARCH_RECORDS &&
+                            React.createElement(SearchRecords, {
+                                fuelRecords: fuelRecords,
+                                personnelList: personnelList,
+                                aircraftData: aircraftData,
+                                tankerData: tankerData,
+                                airportList: airportList,
+                                onAddApprovalRequest: handleAddApprovalRequest,
+                                showMessage: showMessage
+                            }),
+                        activeView === VIEW_ADMIN_PANEL &&
+                            React.createElement(AdminPanel, {
+                                currentUser: currentUser,
+                                setCurrentUser: setCurrentUser,
+                                fuelRecords: fuelRecords,
+                                aircraftData: aircraftData,
+                                tankerData: tankerData,
+                                personnelList: personnelList,
+                                approvalRequests: approvalRequests,
+                                personnelApprovalRequests: personnelApprovalRequests,
+                                adminCredentials: adminCredentials,
+                                airportList: airportList,
+                                showMessage: showMessage,
+                                updateAircraftData: updateAircraftData,
+                                updateTankerData: updateTankerData,
+                                updatePersonnelList: updatePersonnelList,
+                                updateAirportList: updateAirportList,
+                                addAdminUser: addAdminUser,
+                                deleteAdminUser: deleteAdminUser,
+                                updateFuelRecords: updateFuelRecords,
+                                handleEditApproval: handleEditApproval,
+                                handlePersonnelApproval: handlePersonnelApproval,
+                                onBulkUpdate: handleBulkUpdate
+                            })
+                    )
                 )
             )
         )
